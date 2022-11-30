@@ -2,8 +2,8 @@
 
 Github users lookup application
 
-<img src="screenshots/1.jpg" width="998">
-<img src="screenshots/2.jpg" width="998">
+<img src="screenshots/1.png" width="998">
+<img src="screenshots/2.png" width="998">
 
 ## Installation
 
@@ -23,7 +23,7 @@ Github API
 - "/users/:owner"
 - "/users/:owner/repos"
 
-## Requirement checklist
+## Features
 - [x] User list screen
     - [x] Display a list of users
     - [x] Required elements for each line
@@ -43,8 +43,6 @@ Github API
     - [x] Number of Stars
     - [x] Description
 - [x] Tap a row in the repository list to display the URL of the repository in WebView  
-     
-Bonus➕
 - [x] Refresh Repo and User data
 - [x] Refresh interval (currently 5 secs)
 - [x] Display Forked and Non-Forked Only
