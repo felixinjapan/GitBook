@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ApiBaseURL</key>
+	<string>https://${API_BASEURL}</string>
+	<key>ApiRetryCount</key>
+	<string>${API_RETRY_COUNT}</string>
+	<key>ApiTimeoutInSec</key>
+	<string>${API_TIMEOUT_IN_SECS}</string>
+	<key>GetOwnerInfoPath</key>
+	<string>${GET_OWNER_INFO_PATH}</string>
+	<key>GetOwnerRepoInfoPath</key>
+	<string>${GET_OWNER_REPO_INFO_PATH}</string>
+	<key>Token</key>
+	<string>${TOKEN}</string>
+</dict>
+</plist>

@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "cf277562-f6b5-4377-8799-786375d5819f",
+		"name": "GitHub API",
+		"description": "### What is GitHub?\n\n[GitHub](https://github.com/) is a popular code version control platform that over 73 million developers worldwide trust to organize their code bases.\n\nWhile you can interact with GitHub by clicking around their website, you can also interact with GitHub programmatically using their API.  \n  \nThis collection shows just a few of the many actions you can perform using the [GitHub REST API](https://docs.github.com/en/rest).\n\n### What is a repo?\n\nShort for \"repository\", a repo is simply a place where code is stored. You can think of a repo like a project folder.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24313067"
+	},
+	"item": [
+		{
+			"name": "user info",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "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",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/users/:owner",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						":owner"
+					],
+					"variable": [
+						{
+							"key": "owner",
+							"value": "felixinjapan",
+							"description": "username or organization name you would like information about"
+						}
+					]
+				},
+				"description": "Get information about the given user. \n\nMore detailed information is given if the requested user is the currently authorized user."
+			},
+			"response": []
+		},
+		{
+			"name": "user repos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "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",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/users/:owner/repos",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"users",
+						":owner",
+						"repos"
+					],
+					"variable": [
+						{
+							"key": "owner",
+							"value": "felixinjapan",
+							"description": "username or organization name whose repos you would like to see"
+						}
+					]
+				},
+				"description": "Lists all public repos for a given user"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api.github.com",
+			"type": "string"
+		}
+	]
+}
