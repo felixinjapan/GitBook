@@ -13,6 +13,8 @@ final class GitBookState {
     
     @Published var isRepoListLoaded = false
     @Published var showTooManyCallAlert = false
+
+    @Published var pageType: Constants.Page = .UserList
 }
 
 extension GitBookState: ObservableObject { }

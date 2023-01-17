@@ -35,4 +35,8 @@ enum Constants {
     enum Logging: String {
         case subsystem = "jp.co.felixinjapan.Gitbook"
     }
+    enum Page {
+        case UserList
+        case Search
+    }
 }

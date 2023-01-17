@@ -10,49 +10,39 @@ import SwiftUI
 struct SearchView: View {
     @EnvironmentObject var appDIContainer: AppDIContainer
     @EnvironmentObject var gitBookState: GitBookState
-//    @StateObject var viewModel = DefaultOwnerDetailViewModel()
-//    @State private var showNonForkedOnly = true
-
+    
+    @Binding var menuOpened: Bool
+    @State var searchText: String = ""
+    //    @StateObject var viewModel = DefaultOwnerDetailViewModel()
+    
     var body: some View {
-        Text("new text")
-//        NavigationView {
-//            VStack(alignment: .leading) {
-//                    ProgressView("Fetching...")
-//                        .frame(width: 100, height: 100, alignment: .leading)
-//                        .font(.system(size: 20))
-//            }
-//        }
-//        .padding()
-    }
-//        .onAppear {
-//            viewModel.inject(with: appDIContainer, with: gitBookState)
-//        }
-//        .navigationBarTitleDisplayMode(.inline)
-//        .navigationBarItems(trailing: Button(action: {viewModel.refresh(with: owner) }) {
-//            Image(systemName: "arrow.up.arrow.down.circle")
-//                .imageScale(.large)
-//                .frame(width: 44, height: 44, alignment: .trailing)
-//            Text("Refresh")
-//        }.alert("Too many calls! Try again", isPresented: $gitBookState.showTooManyCallAlert){
-//            Button("OK", role: .cancel) { }
-//        })
-
-}
-
-#if DEBUG
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        let repoMock =  RepositoryMock()
-        Group {
-            OwnerDetail(owner: OwnerMock())
-                .environmentObject(DevUtil.instance.gitBookStateFullStub)
-                .environmentObject(AppDIContainer(respositoryContainer:repoMock))
-
-            OwnerDetail(owner: OwnerMock())
-                .environmentObject(DevUtil.instance.gitBookStateFullStub)
-                .environmentObject(AppDIContainer(respositoryContainer: repoMock))
-                .preferredColorScheme(.dark)
+        
+        NavigationView {
+            List {
+                Section {
+                    Text("repo1")
+                    //                    ForEach(model.familyNames, id: \.self) { familyName in
+                    //
+                    //                    }
+                }
+            }
+            .navigationBarTitle(Text("Search Repos"))
+            .navigationBarItems(leading:
+                Button(action: { self.menuOpened.toggle() }) {
+                Image(systemName: "line.3.horizontal.circle")
+                    .imageScale(.large)
+                    .frame(width: 44, height: 44, alignment: .trailing)
+            })
         }
+        .searchable(
+            text: $searchText,
+            placement: .navigationBarDrawer(displayMode: .automatic),
+            prompt: Text("type repo name...")
+        )
+        .onSubmit(of: .search) {
+            //            model.fetchFamilyNames()
+            print("submit")
+        }
+        
     }
 }
-#endif

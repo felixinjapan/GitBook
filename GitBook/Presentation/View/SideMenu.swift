@@ -11,12 +11,15 @@ struct MenuItem: Identifiable {
     var id = UUID()
     let text: String
     let icon: String
+    let type: Constants.Page
 }
 
 struct MenuContent: View {
+    @EnvironmentObject var gitBookState: GitBookState
+
     let items: [MenuItem] = [
-        MenuItem(text: "Users", icon: "person.badge.plus"),
-        MenuItem(text: "Search Repo", icon: "mail.and.text.magnifyingglass")
+        MenuItem(text: "Users", icon: "person.badge.plus", type: .UserList),
+        MenuItem(text: "Search Repo", icon: "mail.and.text.magnifyingglass", type: .Search)
     ]
     var bgColor: Color = Color(.init(
         red: 52 / 255,
@@ -42,7 +45,8 @@ struct MenuContent: View {
                             .multilineTextAlignment(.leading)
                     }
                     .onTapGesture {
-                        print("go to the view")
+                        print("page type: \(item.type)")
+                        self.gitBookState.pageType = item.type
                     }
                 }
                 .padding(.vertical, 14)
