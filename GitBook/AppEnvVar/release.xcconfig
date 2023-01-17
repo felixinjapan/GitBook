@@ -12,6 +12,6 @@ API_BASEURL = "api.github.com"
 GET_OWNER_INFO_PATH = "/users/:owner"
 GET_OWNER_REPO_INFO_PATH = "/users/:owner/repos"
 // crediential
-TOKEN = "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"
+TOKEN = "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"
 API_RETRY_COUNT = 1
 API_TIMEOUT_IN_SECS = 10.0
