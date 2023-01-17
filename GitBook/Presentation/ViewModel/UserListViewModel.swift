@@ -1,5 +1,5 @@
 //
-//  HomeViewModel.swift
+//  UserListViewModel.swift
 //  GitBook
 //
 //  Created by Chon, Felix | Felix | MESD on 2022/11/09.
@@ -8,25 +8,25 @@
 import Foundation
 import os
 
-// MARK: Home View Model
-protocol HomeViewModel: ObservableObject {
+// MARK: UserList View Model
+protocol UserListViewModel: ObservableObject {
     var appDIContainer: AppDIContainer? { get }
     var gitBookState: GitBookState? { get }
-    
+
     func getOwner(with username: String)
     func initData()
     func deleteData(at offsets: IndexSet)
 }
 
-final class DefaultHomeViewModel {
+final class DefaultUserListViewModel {
     var appDIContainer: AppDIContainer?
     var gitBookState: GitBookState?
     private var cancelBag = CancelBag()
-    private let logger = Logger(subsystem: Constants.Logging.subsystem.rawValue, category: String(describing: DefaultHomeViewModel.self))
+    private let logger = Logger(subsystem: Constants.Logging.subsystem.rawValue, category: String(describing: DefaultUserListViewModel.self))
 }
 
-// MARK: DefaultHomeViewModel
-extension DefaultHomeViewModel: HomeViewModel {
+// MARK: DefaultUserListViewModel
+extension DefaultUserListViewModel: UserListViewModel {
     func getOwner(with username: String) {
         guard let container = self.appDIContainer else { return }
         guard let state = self.gitBookState else { return }
@@ -42,14 +42,14 @@ extension DefaultHomeViewModel: HomeViewModel {
             state.updateState(owner: owner)
         }
     }
-    
+
     func initData(){
         guard let container = self.appDIContainer else { return }
         guard let gitBookState = self.gitBookState else { return }
         // check exisiting data
         gitBookState.listOfOwners = container.fetchDataUsecase.getOwnerListFromCoreData()
     }
-    
+
     func deleteData(at offsets: IndexSet){
         guard let container = self.appDIContainer else { return }
         guard let gitBookState = self.gitBookState else { return }
@@ -61,7 +61,7 @@ extension DefaultHomeViewModel: HomeViewModel {
         }
         gitBookState.listOfOwners.remove(atOffsets: offsets)
     }
-    
+
     func inject(with appDIContainer: AppDIContainer, with gitBookState: GitBookState) {
         self.appDIContainer = appDIContainer
         self.gitBookState = gitBookState

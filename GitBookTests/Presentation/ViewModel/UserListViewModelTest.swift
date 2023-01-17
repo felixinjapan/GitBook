@@ -1,5 +1,5 @@
 //
-//  HomeViewModelTest.swift
+//  UserListViewModelTest.swift
 //  GitBookTests
 //
 //  Created by Chon, Felix | Felix | MESD on 2022/11/17.
@@ -8,7 +8,7 @@
 import Foundation
 import XCTest
 
-final class HomeViewModelTest: XCTestCase {
+final class UserListViewModelTest: XCTestCase {
 
     func test_whenGetOwnerCalledFirstTime_shouldCallAPIAndUpdateState() {
         // given
@@ -20,7 +20,7 @@ final class HomeViewModelTest: XCTestCase {
         let fecthDataUseCaseMock = FetchDataUseCaseMock_FirstTimeLaunch()
         let storeDataUseCaseMock = StoreDataUseCaseMock_FirstTimeLaunch()
         let state = GitBookState()
-        let sut = DefaultHomeViewModel()
+        let sut = DefaultUserListViewModel()
 
         storeDataUseCaseMock.ownerExpectation = storeExpectation
         fecthDataUseCaseMock.ownerExpectation = fetchExpectation
@@ -46,7 +46,7 @@ final class HomeViewModelTest: XCTestCase {
         let appDIContainer = AppDIContainer(respositoryContainer: RepositoryMock())
         let fecthDataUseCaseMock = FetchDataUseCaseMock_SecondTimeLaunch()
         let state = GitBookState()
-        let sut = DefaultHomeViewModel()
+        let sut = DefaultUserListViewModel()
 
         fecthDataUseCaseMock.ownerExpectation = fetchExpectation
         appDIContainer.fetchDataUsecase = fecthDataUseCaseMock
@@ -75,7 +75,7 @@ final class HomeViewModelTest: XCTestCase {
             state.listOfOwners.append(OwnerMock())
         }
 
-        let sut = DefaultHomeViewModel()
+        let sut = DefaultUserListViewModel()
 
         storeDataUseCaseMock.expectation = storeExpectation
         appDIContainer.storeDataUsecase = storeDataUseCaseMock

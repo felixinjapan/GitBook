@@ -13,7 +13,7 @@ struct SearchView: View {
     
     @Binding var menuOpened: Bool
     @State var searchText: String = ""
-    //    @StateObject var viewModel = DefaultOwnerDetailViewModel()
+    @StateObject var viewModel = DefaultOwnerDetailViewModel()
     
     var body: some View {
         

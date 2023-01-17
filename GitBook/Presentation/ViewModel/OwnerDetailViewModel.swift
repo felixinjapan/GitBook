@@ -39,7 +39,7 @@ final class DefaultOwnerDetailViewModel {
     }
 
     private var cancelBag = CancelBag()
-    private let logger = Logger(subsystem: Constants.Logging.subsystem.rawValue, category: String(describing: DefaultHomeViewModel.self))
+    private let logger = Logger(subsystem: Constants.Logging.subsystem.rawValue, category: String(describing: DefaultOwnerDetailViewModel.self))
 }
 // MARK: Owner Detail View Model - Implementation
 extension DefaultOwnerDetailViewModel: OwnerDetailViewModel {

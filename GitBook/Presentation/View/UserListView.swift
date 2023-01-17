@@ -12,7 +12,7 @@ struct UserListView: View {
     @EnvironmentObject var gitBookState: GitBookState
 
     // VM
-    @StateObject private var viewModel = DefaultHomeViewModel()
+    @StateObject private var viewModel = DefaultUserListViewModel()
     @State private var presentAlert = false
     @State private var username: String = ""
     @Binding var menuOpened: Bool
