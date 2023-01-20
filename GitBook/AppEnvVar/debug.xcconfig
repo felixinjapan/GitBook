@@ -12,8 +12,8 @@ GET_OWNER_INFO_PATH = "/users/:owner"
 GET_OWNER_REPO_INFO_PATH = "/users/:owner/repos"
 GET_SEARCH_REPO = "/search/repositories"
 // crediential 
-TOKEN = "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"
+TOKEN = "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"
 API_RETRY_COUNT = 1
 API_TIMEOUT_IN_SEC = 10.0
 API_MAX_NUM_CALL = 7
-API_SLEEP_PERIOD_SEC = 30
+API_SLEEP_PERIOD_SEC = 10
