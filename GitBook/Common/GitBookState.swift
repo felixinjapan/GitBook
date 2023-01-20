@@ -10,8 +10,11 @@ import Foundation
 final class GitBookState {
     @Published var listOfOwners = [Owner]()
     @Published var currentRepoList = [Repo]()
-    
     @Published var isRepoListLoaded = false
+
+    @Published var searchRepoList = [Repo]()
+    @Published var isSearchRepoListLoaded = false
+
     @Published var showTooManyCallAlert = false
 
     @Published var pageType: Constants.Page = .UserList
@@ -30,6 +33,10 @@ extension GitBookState {
     
     func updateState(repo: [Repo]){
         self.currentRepoList = repo
+    }
+
+    func updateState(searchRepoList: [Repo]){
+        self.searchRepoList.append(contentsOf: searchRepoList)
     }
 }
 
