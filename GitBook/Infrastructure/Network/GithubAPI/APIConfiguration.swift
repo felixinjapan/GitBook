@@ -42,7 +42,14 @@ final class APIConfiguration {
         }
         return apiBaseURL.apiConfiguration_removeUrlBackslash()
     }()
-    
+
+    lazy var pathSearchRepo: String = {
+        guard let apiBaseURL = Bundle.main.object(forInfoDictionaryKey: Constants.InfoDictionaryKey.getSearchRepoPath.rawValue) as? String else {
+            fatalError("GET_SEARCH_REPO not found")
+        }
+        return apiBaseURL.apiConfiguration_removeUrlBackslash()
+    }()
+
     lazy var apiRetryCount: Int = {
         guard let strValue = Bundle.main.object(forInfoDictionaryKey: Constants.InfoDictionaryKey.apiRetryCount.rawValue) as? String else {
             fatalError("apiRetryCount not found")
@@ -61,10 +68,9 @@ final class APIConfiguration {
         guard let apiTimeoutInSec = Double(strValue) else {
             fatalError("apiTimeoutInSec must be an integer")
         }
-        
         return apiTimeoutInSec
     }()
-    
+
     lazy var urlSessionConfig: URLSession = {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = self.apiTimeoutInSec

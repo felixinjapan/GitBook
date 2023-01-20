@@ -25,8 +25,11 @@ enum Constants {
         case apiBaseURL = "ApiBaseURL"
         case getOwnerInfoPath = "GetOwnerInfoPath"
         case getOwnerRepoInfoPath = "GetOwnerRepoInfoPath"
+        case getSearchRepoPath = "GetSearchRepoPath"
         case apiRetryCount = "ApiRetryCount"
         case apiTimeoutInSec = "ApiTimeoutInSec"
+        case apiMaxNumCall = "ApiMaxNumCall"
+        case apiSleepPeriodSec = "ApiSleepPeriodSec"
     }
     enum General: String {
         case unknown = "unknown"

@@ -7,11 +7,13 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-// It is a good idea to store these values in remotely (i.e Firebase) and in more secure places
 API_BASEURL = "api.github.com"
 GET_OWNER_INFO_PATH = "/users/:owner"
 GET_OWNER_REPO_INFO_PATH = "/users/:owner/repos"
+GET_SEARCH_REPO = "/search/repositories"
 // crediential 
-TOKEN = "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"
+TOKEN = "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"
 API_RETRY_COUNT = 1
-API_TIMEOUT_IN_SECS = 10.0
+API_TIMEOUT_IN_SEC = 10.0
+API_MAX_NUM_CALL = 7
+API_SLEEP_PERIOD_SEC = 30

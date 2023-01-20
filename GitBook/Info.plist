@@ -7,11 +7,17 @@
 	<key>ApiRetryCount</key>
 	<string>${API_RETRY_COUNT}</string>
 	<key>ApiTimeoutInSec</key>
-	<string>${API_TIMEOUT_IN_SECS}</string>
+	<string>${API_TIMEOUT_IN_SEC}</string>
+	<key>ApiMaxNumCall</key>
+	<string>${API_MAX_NUM_CALL}</string>
+	<key>ApiSleepPeriodSec</key>
+	<string>${API_SLEEP_PERIOD_SEC}</string>
 	<key>GetOwnerInfoPath</key>
 	<string>${GET_OWNER_INFO_PATH}</string>
 	<key>GetOwnerRepoInfoPath</key>
 	<string>${GET_OWNER_REPO_INFO_PATH}</string>
+	<key>GetSearchRepoPath</key>
+	<string>${GET_SEARCH_REPO}</string>
 	<key>Token</key>
 	<string>${TOKEN}</string>
 </dict>
