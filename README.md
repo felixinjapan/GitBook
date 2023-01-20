@@ -2,17 +2,22 @@
 
 Github users lookup application
 
-<img src="screenshots/1.png" width="998">
-<img src="screenshots/2.png" width="998">
+<img src="screenshots/1.png" width="450">
+<img src="screenshots/2.png" width="450">
+<img src="screenshots/3.png" width="450">
 
 ## Installation
+
+Please update github token to your Personal access tokens (classic)
+- GitBook/AppEnvVar/debug.xcconfig
+- GitBook/AppEnvVar/release.xcconfig
 
 Open GitBook.xcodeproj on Xcode & Run
 
 ## Environment
 Xcode Version 14.0 (14A309)
 
-iOS 15.4 Simulator and Device
+iOS 16.0 Simulator and Device
 
 swift-driver version: 1.45.2 
 
@@ -22,7 +27,7 @@ Apple Swift version 5.6
 Github API
 - "/users/:owner"
 - "/users/:owner/repos"
-
+- "/search/repositories"
 ## Features
 - [x] User list screen
     - [x] Display a list of users
@@ -47,7 +52,17 @@ Github API
 - [x] Refresh interval (currently 5 secs)
 - [x] Display Forked and Non-Forked Only
 - [x] Minimum offline support using coredata
-
+- [x] Search Repo View
+    - [x] Search based on repository name
+    - [x] Support an incremental search
+    - [x] Throttling by configuration in debug & release xcconfig files
+        - API_SLEEP_PERIOD_SEC (Freeze API call for x seconds)
+        - API_MAX_NUM_CALL (Max API call before the API call get freezed)
+    - [x] Display
+        - Repository name
+        - Development language
+        - Number of Stars
+        - Description
 ## Note
 
 SwiftUI + Clean architecture + MVVM
