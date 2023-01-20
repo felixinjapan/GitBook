@@ -16,6 +16,7 @@ struct MenuItem: Identifiable {
 
 struct MenuContent: View {
     @EnvironmentObject var gitBookState: GitBookState
+    @Binding var menuOpened: Bool
 
     let items: [MenuItem] = [
         MenuItem(text: "Users", icon: "person.badge.plus", type: .UserList),
@@ -45,8 +46,8 @@ struct MenuContent: View {
                             .multilineTextAlignment(.leading)
                     }
                     .onTapGesture {
-                        print("page type: \(item.type)")
                         self.gitBookState.pageType = item.type
+                        self.menuOpened.toggle()
                     }
                 }
                 .padding(.vertical, 14)
@@ -74,7 +75,7 @@ struct SideMenu: View {
             }
 
             HStack(alignment: .top) {
-                MenuContent()
+                MenuContent(menuOpened: self.$menuOpened)
                     .frame(width: width)
                     .offset(x: self.menuOpened ? 0 : -width)
                     .animation(.default, value: self.menuOpened)
