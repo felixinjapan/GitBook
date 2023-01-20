@@ -101,6 +101,13 @@
 		43A6989D297226590060E5BA /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A6989C297226590060E5BA /* SideMenu.swift */; };
 		43BFBEF829792AD300D012C4 /* SearchRepoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BFBEF729792AD200D012C4 /* SearchRepoResponse.swift */; };
 		43BFBF01297A71FD00D012C4 /* SearchRepoViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BFBF00297A71FD00D012C4 /* SearchRepoViewConfiguration.swift */; };
+		43BFBF03297A87C100D012C4 /* SearchRepoViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BFBF02297A87C100D012C4 /* SearchRepoViewModelTest.swift */; };
+		43BFBF04297A893700D012C4 /* SearchRepoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 438B0EBF297704E200E186BA /* SearchRepoViewModel.swift */; };
+		43BFBF05297A893700D012C4 /* SearchRepoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BFBEF729792AD200D012C4 /* SearchRepoResponse.swift */; };
+		43BFBF06297A893700D012C4 /* SearchRepoViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BFBF00297A71FD00D012C4 /* SearchRepoViewConfiguration.swift */; };
+		43BFBF07297A8E4F00D012C4 /* SearchRepoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A6989A297132BC0060E5BA /* SearchRepoView.swift */; };
+		43BFBF08297A8E4F00D012C4 /* SideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A6989C297226590060E5BA /* SideMenu.swift */; };
+		43BFBF09297A8E4F00D012C4 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4356D50929764F070006F520 /* UserListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +183,7 @@
 		43A6989C297226590060E5BA /* SideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenu.swift; sourceTree = "<group>"; };
 		43BFBEF729792AD200D012C4 /* SearchRepoResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRepoResponse.swift; sourceTree = "<group>"; };
 		43BFBF00297A71FD00D012C4 /* SearchRepoViewConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRepoViewConfiguration.swift; sourceTree = "<group>"; };
+		43BFBF02297A87C100D012C4 /* SearchRepoViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepoViewModelTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +300,7 @@
 			children = (
 				4341AEE8292681B600446E84 /* UserListViewModelTest.swift */,
 				4341AF1C2927B7FE00446E84 /* OwnerDetailViewModelTest.swift */,
+				43BFBF02297A87C100D012C4 /* SearchRepoViewModelTest.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -679,9 +688,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43BFBF07297A8E4F00D012C4 /* SearchRepoView.swift in Sources */,
+				43BFBF08297A8E4F00D012C4 /* SideMenu.swift in Sources */,
+				43BFBF09297A8E4F00D012C4 /* UserListView.swift in Sources */,
+				43BFBF04297A893700D012C4 /* SearchRepoViewModel.swift in Sources */,
+				43BFBF05297A893700D012C4 /* SearchRepoResponse.swift in Sources */,
+				43BFBF06297A893700D012C4 /* SearchRepoViewConfiguration.swift in Sources */,
 				4341AF46292AA76000446E84 /* Webview.swift in Sources */,
 				4341AF272929F6AA00446E84 /* RefreshTimeChecker.swift in Sources */,
 				4341AF102926942000446E84 /* CoreDataRepositoryMock.swift in Sources */,
+				43BFBF03297A87C100D012C4 /* SearchRepoViewModelTest.swift in Sources */,
 				4341AF30292A156500446E84 /* FetchDataUseCaseTest.swift in Sources */,
 				4341AEEB2926843900446E84 /* FetchDataUseCase.swift in Sources */,
 				4341AF212929F20B00446E84 /* GithubAPIRepositoryTest.swift in Sources */,

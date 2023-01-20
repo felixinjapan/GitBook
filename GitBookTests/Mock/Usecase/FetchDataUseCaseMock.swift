@@ -9,6 +9,7 @@ import Foundation
 import XCTest
 // MARK: Fetch Data UseCase Mock - First Time Launch
 final class FetchDataUseCaseMock_FirstTimeLaunch: FetchDataUseCase {
+
     var ownerExpectation: XCTestExpectation?
     var repoExpectation: XCTestExpectation?
 
@@ -24,6 +25,19 @@ final class FetchDataUseCaseMock_FirstTimeLaunch: FetchDataUseCase {
 
     func getReposFromCoreData(with owner: Owner) -> [Repo] {
         return []
+    }
+
+    func getRepoFromAPI(page: Int, query: String, state: GitBookState, completion: @escaping ([RepoResponse]) -> Void) {
+        var resList = [RepoResponse]()
+        let repoOwnerMock = RepoOwner(login: "MinnanoTaro", id: 33333)
+        for idx in 1...5 {
+            let repoResponseMock = RepoResponse(id: Int64(idx), repoFullName: "MyRepo\(idx)", url: "www.japan.com", repoOwner: repoOwnerMock, stargazersCount: 44, language: "java", desc: "hello world", fork: false)
+            resList.append(repoResponseMock)
+        }
+        if let expct = repoExpectation {
+            expct.fulfill()
+            completion(resList)
+        }
     }
 
     func getOwnerFromAPI(with username: String, completion: @escaping (OwnerResponse) -> Void) {
@@ -50,6 +64,7 @@ final class FetchDataUseCaseMock_FirstTimeLaunch: FetchDataUseCase {
 
 // MARK: Fetch Data UseCase Mock - Second Time Launch
 final class FetchDataUseCaseMock_SecondTimeLaunch: FetchDataUseCase {
+
     var ownerExpectation: XCTestExpectation?
     var repoExpectation: XCTestExpectation?
 
@@ -79,6 +94,8 @@ final class FetchDataUseCaseMock_SecondTimeLaunch: FetchDataUseCase {
     }
 
     func getOwnerFromAPI(with username: String, completion: @escaping (OwnerResponse) -> Void) { }
+
+    func getRepoFromAPI(page: Int, query: String, state: GitBookState, completion: @escaping ([RepoResponse]) -> Void) { }
 
     func getRepoFromAPI(with username: String, state: GitBookState, completion: @escaping ([RepoResponse]) -> Void) { }
 }

@@ -9,6 +9,7 @@ import Foundation
 import XCTest
 // MARK: Store Data UseCase Mock - First Time Launch
 final class StoreDataUseCaseMock_FirstTimeLaunch: StoreDataUseCase {
+
     var ownerExpectation: XCTestExpectation?
     var repoExpectation: XCTestExpectation?
     var repositoryContainer: RepositoryContainer = RepositoryMock()
@@ -26,6 +27,13 @@ final class StoreDataUseCaseMock_FirstTimeLaunch: StoreDataUseCase {
         return OwnerMock()
     }
 
+    func saveOwner(username: String) -> Owner {
+        if let expct = ownerExpectation {
+            expct.fulfill()
+        }
+        return OwnerMock()
+    }
+
     func saveRepo(resList: [RepoResponse], owner: Owner) -> [Repo] {
         if let expct = repoExpectation {
             expct.fulfill()
@@ -35,6 +43,7 @@ final class StoreDataUseCaseMock_FirstTimeLaunch: StoreDataUseCase {
 }
 // MARK: Store Data UseCase Mock - Second Time Launch
 final class StoreDataUseCaseMock_SecondTimeLaunch: StoreDataUseCase {
+
     var repositoryContainer: RepositoryContainer = RepositoryMock()
 
     func deleteRepo(_ owner: Owner) { }
@@ -47,6 +56,12 @@ final class StoreDataUseCaseMock_SecondTimeLaunch: StoreDataUseCase {
         XCTFail()
         return OwnerMock()
     }
+
+    func saveOwner(username: String) -> Owner {
+        XCTFail()
+        return OwnerMock()
+    }
+    
     func saveRepo(resList: [RepoResponse], owner: Owner) -> [Repo] { XCTFail(); return [] }
 }
 // MARK: Store Data UseCase Mock - Delete Test
@@ -68,6 +83,10 @@ final class StoreDataUseCaseMock_DeleteTest: StoreDataUseCase {
         return OwnerMock()
     }
 
+    func saveOwner(username: String) -> Owner {
+        return OwnerMock()
+    }
+
     func saveRepo(resList: [RepoResponse], owner: Owner) -> [Repo] {
         return []
     }
@@ -75,6 +94,7 @@ final class StoreDataUseCaseMock_DeleteTest: StoreDataUseCase {
 }
 // MARK: Store Data UseCase Mock - Refresh
 final class StoreDataUseCaseMock_RefreshTest: StoreDataUseCase {
+
     var ownerExpectation: XCTestExpectation?
     var repoExpectation: XCTestExpectation?
     var repositoryContainer: RepositoryContainer = RepositoryMock()
@@ -82,6 +102,10 @@ final class StoreDataUseCaseMock_RefreshTest: StoreDataUseCase {
     func deleteRepo(_ owner: Owner) { }
 
     func deleteOwner(_ username: String) { }
+
+    func saveOwner(username: String) -> Owner {
+        return OwnerMock()
+    }
 
     func updateOwner(_ owner: Owner, res: OwnerResponse) {
         if let expct = ownerExpectation {
