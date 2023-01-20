@@ -19,7 +19,7 @@ struct Home: View {
             case .UserList:
                 UserListView(menuOpened: self.$menuOpened)
             case .Search:
-                SearchView(menuOpened: self.$menuOpened)
+                SearchRepoView(menuOpened: self.$menuOpened)
             }
             SideMenu(menuOpened: self.$menuOpened)
         }
