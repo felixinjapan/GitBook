@@ -10,6 +10,7 @@ import Foundation
 // MARK: - RefreshTimeChecker
 
 protocol RefreshTimeChecker {
+    var callCount:Int { get }
     func resetTimer()
     func increaseCount()
     func canCallAgain(maxNumOfCallAllowed: Int) -> Bool
@@ -20,7 +21,7 @@ protocol RefreshTimeChecker {
 
 final class DefaultAPIRefreshTimeChecker: RefreshTimeChecker {
     private var defaults = UserDefaults.standard
-    private var callcCount = 0
+    var callCount = 0
     init(defaults: UserDefaults = UserDefaults.standard) {
         self.defaults = defaults
     }
@@ -40,16 +41,16 @@ final class DefaultAPIRefreshTimeChecker: RefreshTimeChecker {
     }
 
     func increaseCount() {
-        self.callcCount+=1
+        self.callCount+=1
     }
 
     func canCallAgain(maxNumOfCallAllowed: Int) -> Bool {
-        if maxNumOfCallAllowed > callcCount {
+        if maxNumOfCallAllowed > callCount {
             return true
         }
         // initiate timer
         resetTimer()
-        self.callcCount = 0
+        self.callCount = 0
         return false
     }
 }
