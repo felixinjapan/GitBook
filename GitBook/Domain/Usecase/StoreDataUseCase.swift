@@ -12,6 +12,7 @@ import os
 protocol StoreDataUseCase {
     var repositoryContainer: RepositoryContainer { get }
     func saveOwner(res: OwnerResponse) -> Owner
+    func saveOwner(username: String) -> Owner 
     func saveRepo(resList: [RepoResponse], owner: Owner) -> [Repo]
     func deleteRepo(_ owner:Owner)
     func deleteOwner(_ username:String)
@@ -33,6 +34,12 @@ extension DefaultStoreDataUseCase {
 
     func saveOwner(res: OwnerResponse) -> Owner {
         let owner = repositoryContainer.coreDataRepository.insertOwner(ownerResponse: res)
+        repositoryContainer.coreDataRepository.saveData()
+        return owner
+    }
+
+    func saveOwner(username: String) -> Owner {
+        let owner = repositoryContainer.coreDataRepository.insertOwner(username: username)
         repositoryContainer.coreDataRepository.saveData()
         return owner
     }

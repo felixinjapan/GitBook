@@ -17,6 +17,7 @@ protocol CoreDataRepository {
     func fetchAllOwnerList() -> [Owner]
     /// create
     func insertOwner(ownerResponse: OwnerResponse) -> Owner
+    func insertOwner(username: String) -> Owner
     func insertRepo(res: RepoResponse, owner: Owner) -> Repo
     /// update
     func updateOwner(res: OwnerResponse, owner: Owner)
@@ -115,7 +116,13 @@ extension DefaultCoreDataRepository {
         
         return ownerEntity
     }
-    
+
+    func insertOwner(username: String) -> Owner {
+        let ownerEntity = Owner(context: container.viewContext)
+        ownerEntity.username = username
+        return ownerEntity
+    }
+
     func insertRepo(res: RepoResponse, owner: Owner) -> Repo {
         let repoEntity = Repo(context: container.viewContext)
         repoEntity.repoId = res.id

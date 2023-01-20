@@ -15,6 +15,7 @@ protocol APIRepository {
     
     func getOwner(with username: String) -> AnyPublisher<OwnerResponse, Error>
     func getRepo(with username: String) -> AnyPublisher<[RepoResponse], Error>
+    func getRepo(queryParam: [URLQueryItem]) -> AnyPublisher<SearchRepoResponse, Error>
 }
 
 extension APIRepository {
