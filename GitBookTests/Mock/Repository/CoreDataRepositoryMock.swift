@@ -9,6 +9,9 @@ import Foundation
 import CoreData
 
 class CoreDataRepositoryMock: CoreDataRepository {
+    func insertOwner(username: String) -> Owner {
+        return OwnerMock()
+    }
 
     func updateOwner(res: OwnerResponse, owner: Owner) { }
 
